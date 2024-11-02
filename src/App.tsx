@@ -80,22 +80,32 @@ function App() {
             Featured <span className="text-[#D4AF37]">Projects</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[1, 2, 3].map((item) => (
-              <div key={item} className="relative overflow-hidden rounded-lg group">
-                <img 
-                  src={`https://source.unsplash.com/random/800x600?technology=${item}`}
-                  alt="Portfolio item"
-                  className="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
-                  <div className="text-center">
-                    <h3 className="text-xl font-semibold text-white mb-2">Project {item}</h3>
-                    <p className="text-[#D4AF37]">View Details</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+  {[
+    { id: 1, link: 'https://siddesh0002t.github.io/MineMods/', title: 'MineMods', src: '..projects/MineMods.png' },
+    { id: 2, link: 'https://rubbyroomchat.vercel.app/', title: 'Rubby room chat', src: '..projects/rubby.png' },
+    { id: 3, link: 'https://violence-detection.vercel.app/', title: 'Vionlence Detection Ai', src: '..projects/' },
+  ].map((item) => (
+    <div key={item.id} className="relative overflow-hidden rounded-lg group">
+      <img 
+        src={item.src}
+        alt={`Portfolio item ${item.id}`}
+        className="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500"
+      />
+      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+        <div className="text-center">
+          <h3 className="text-xl font-semibold text-white mb-2">{item.title}</h3>
+          <a 
+            href={item.link}
+            className="text-[#D4AF37] hover:underline"
+          >
+            View Details
+          </a>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
         </div>
       </section>
 
