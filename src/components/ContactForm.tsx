@@ -18,7 +18,7 @@ export default function ContactForm() {
 
     try {
       await emailjs.send(
-        'service_duvjt8g', // Replace with your EmailJS service ID
+        'service_x213xnk', // Replace with your EmailJS service ID
         'template_yf9hrse', // Replace with your EmailJS template ID
         {
           to_email: 'techdesk420@gmail.com',
