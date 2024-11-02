@@ -80,32 +80,33 @@ function App() {
       Featured <span className="text-[#D4AF37]">Projects</span>
     </h2>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {[
-        { id: 1, src: '/projects/MineMods.png', link: 'https://siddesh0002t.github.io/MineMods/', title: 'MineMods' },
-        { id: 2, src: '/projects/rubby.png', link: 'https://rubbyroomchat.vercel.app/', title: 'Rubby Room Chat' },
-        { id: 3, src: '/projects/Violence detection.png', link: 'https://violence-detection.vercel.app/', title: 'Violence Detection AI' },
-      ].map((item) => (
-        <div key={item.id} className="relative overflow-hidden rounded-lg group">
-          <img 
-            src={item.src}
-            alt={`${item.title} project preview`}
-            className="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500"
-          />
-          <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
-            <div className="text-center">
-              <h3 className="text-xl font-semibold text-white mb-2">{item.title}</h3>
-              <a 
-                href={item.link}
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-[#D4AF37] hover:underline"
-              >
-                View Details
-              </a>
-            </div>
-          </div>
-        </div>
-      ))}
+    {[
+  { id: 1, src: '/projects/MineMods.png', link: 'https://siddesh0002t.github.io/MineMods/', title: 'MineMods' },
+  { id: 2, src: '/projects/rubby.png', link: 'https://rubbyroomchat.vercel.app/', title: 'Rubby Room Chat' },
+  { id: 3, src: '/projects/Violence detection.png', link: 'https://violence-detection.vercel.app/', title: 'Violence Detection AI' },
+].map((item) => (
+  <div key={item.id} className="relative overflow-hidden rounded-lg group">
+    <img 
+      src={item.src}
+      alt={`${item.title} project preview`}
+      className="w-full h-64 object-contain bg-black transform group-hover:scale-105 transition-transform duration-500"
+    />
+    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+      <div className="text-center">
+        <h3 className="text-xl font-semibold text-white mb-2">{item.title}</h3>
+        <a 
+          href={item.link}
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="text-[#D4AF37] hover:underline"
+        >
+          View Details
+        </a>
+      </div>
+    </div>
+  </div>
+))}
+
     </div>
   </div>
 </section>
