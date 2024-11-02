@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Monitor, Smartphone, Film, Video, Camera, Palette } from 'lucide-react';
 import Navbar from './components/Navbar';
 import ServiceCard from './components/ServiceCard';
 import Background from './components/Background';
 import ContactForm from './components/ContactForm';
+import './index.css'; 
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 2500); // Adjust the time as needed
+
+    return () => clearTimeout(timer); 
+  }, []);
+
   const services = [
     {
       icon: <Monitor size={32} />,
@@ -38,6 +47,14 @@ function App() {
       description: "Creative designs that make your brand stand out in the digital landscape."
     }
   ];
+
+  if (isLoading) {
+    return (
+      <div className="loading-screen">
+        <img src="/projects/logo.jpg" alt="Logo" className="logo" />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen">
@@ -73,44 +90,42 @@ function App() {
         </div>
       </section>
 
-     {/* Portfolio Section */}
-<section id="portfolio" className="py-20 px-4">
-  <div className="max-w-7xl mx-auto">
-    <h2 className="text-4xl font-bold text-center text-white mb-16">
-      Featured <span className="text-[#D4AF37]">Projects</span>
-    </h2>
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    {[
-  { id: 1,  src: '/projects/Violence detection.png', link: 'https://violence-detection.vercel.app/', title: 'Violence Detection AI' },
-  { id: 2, src: '/projects/rubby.png', link: 'https://rubbyroomchat.vercel.app/', title: 'Rubby Room Chat' },
-  { id: 3, src: '/projects/MineMods.png', link: 'https://siddesh0002t.github.io/MineMods/', title: 'MineMods'},
-].map((item) => (
-  <div key={item.id} className="relative overflow-hidden rounded-lg group">
-    <img 
-      src={item.src}
-      alt={`${item.title} project preview`}
-      className="w-full h-64 object-contain bg-black transform group-hover:scale-105 transition-transform duration-500"
-    />
-    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
-      <div className="text-center">
-        <h3 className="text-xl font-semibold text-white mb-2">{item.title}</h3>
-        <a 
-          href={item.link}
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="text-[#D4AF37] hover:underline"
-        >
-          View Details
-        </a>
-      </div>
-    </div>
-  </div>
-))}
-
-    </div>
-  </div>
-</section>
-
+      {/* Portfolio Section */}
+      <section id="portfolio" className="py-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold text-center text-white mb-16">
+            Featured <span className="text-[#D4AF37]">Projects</span>
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              { id: 1, src: '/projects/Violence detection.png', link: 'https://violence-detection.vercel.app/', title: 'Violence Detection AI' },
+              { id: 2, src: '/projects/rubby.png', link: 'https://rubbyroomchat.vercel.app/', title: 'Rubby Room Chat' },
+              { id: 3, src: '/projects/MineMods.png', link: 'https://siddesh0002t.github.io/MineMods/', title: 'MineMods' }
+            ].map((item) => (
+              <div key={item.id} className="relative overflow-hidden rounded-lg group">
+                <img 
+                  src={item.src}
+                  alt={`${item.title} project preview`}
+                  className="w-full h-64 object-contain bg-black transform group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+                  <div className="text-center">
+                    <h3 className="text-xl font-semibold text-white mb-2">{item.title}</h3>
+                    <a 
+                      href={item.link}
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="text-[#D4AF37] hover:underline"
+                    >
+                      View Details
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Contact Section */}
       <section id="contact" className="py-20 px-4">

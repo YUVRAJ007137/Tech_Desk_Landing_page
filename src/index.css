@@ -4,13 +4,36 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-behavior: smooth;
 }
 
 body {
   @apply bg-black text-white;
+  animation: fadeIn2 0.7s ease-in forwards; /* Fade-in for body */
+  animation-delay: 2.5s; /* Start the body animation after 3 seconds */
+}
+.logo {
+  width: 300px; /* Adjust size as needed */
+  animation: fadeIn 2s ease-in forwards; /* Fade-in for logo */
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    width: 250px;
+  }
+  to {
+    opacity: 1;
+    width: 300px;
+  }
+}
+@keyframes fadeIn2 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 @keyframes pulse {
   0%, 100% {
     opacity: 0.5;
@@ -31,3 +54,13 @@ body {
 .delay-1000 {
   animation-delay: 1000ms;
 }
+
+.loading-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #000;
+}
+
+
