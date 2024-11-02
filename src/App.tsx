@@ -81,9 +81,9 @@ function App() {
     </h2>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     {[
-  { id: 1, src: '/projects/MineMods.png', link: 'https://siddesh0002t.github.io/MineMods/', title: 'MineMods' },
+  { id: 1,  src: '/projects/Violence detection.png', link: 'https://violence-detection.vercel.app/', title: 'Violence Detection AI' },
   { id: 2, src: '/projects/rubby.png', link: 'https://rubbyroomchat.vercel.app/', title: 'Rubby Room Chat' },
-  { id: 3, src: '/projects/Violence detection.png', link: 'https://violence-detection.vercel.app/', title: 'Violence Detection AI' },
+  { id: 3, src: '/projects/MineMods.png', link: 'https://siddesh0002t.github.io/MineMods/', title: 'MineMods'},
 ].map((item) => (
   <div key={item.id} className="relative overflow-hidden rounded-lg group">
     <img 
