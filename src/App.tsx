@@ -8,12 +8,29 @@ import './index.css';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    // Function to handle scroll event
+    const handleScroll = (event:WheelEvent) => {
+      event.preventDefault(); // Prevent default scroll behavior
+      window.scrollBy({
+        top: event.deltaY * 0.3, // Adjust the multiplier to control scroll speed
+        behavior: 'smooth',
+      });
+    };
 
+    // Attach the event listener
+    window.addEventListener('wheel', handleScroll, { passive: false });
+    
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener('wheel', handleScroll);
+    };
+  }, []);
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 2500); // Adjust the time as needed
     return () => clearTimeout(timer); 
   }, []);
-
+ 
   const services = [
     { icon: <Monitor size={32} />, title: "Web Design", description: "Custom-crafted websites that capture your brand's essence and drive results." },
     { icon: <Smartphone size={32} />, title: "App Development", description: "Native Android applications built with the latest technologies and best practices." },
