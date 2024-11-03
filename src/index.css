@@ -4,57 +4,29 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory; /* Enables vertical scroll snapping */
 }
 
 body {
-  @apply bg-black text-white min-h-screen;
-  opacity: 0;
-  animation: fadeInBody 0.7s ease-in forwards;
-  animation-delay: 2.5s; /* Body content appears after 2.5 seconds */
-  overflow-y: scroll;
+  @apply bg-black text-white;
+  animation: fadeIn2 0.7s ease-in forwards; /* Fade-in for body */
+  animation-delay: 2.5s; /* Start the body animation after 3 seconds */
 }
-
-/* Loading Screen */
-/* Loading Screen */
-.loading-screen {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh; /* Full viewport height */
-  background-color: #000; /* Black background */
-  position: fixed; /* Fixed position to cover the whole viewport */
-  top: 0; /* Align to top */
-  left: 0; /* Align to left */
-  width: 100%; /* Full width */
-  z-index: 1000; /* Ensure it's on top of other content */
-  transition: opacity 0.5s ease-in-out; /* Fade-out effect */
-}
-
-.hidden {
-  opacity: 0;
-  visibility: hidden; /* Hide when loading is done */
-  pointer-events: none; /* Prevent interaction */
-}
-
-/* Logo Styling */
 .logo {
   width: 300px; /* Adjust size as needed */
-  animation: fadeInLogo 1s ease-in forwards; /* Fade-in for logo */
+  animation: fadeIn 2s ease-in forwards; /* Fade-in for logo */
 }
 
-@keyframes fadeInLogo {
+@keyframes fadeIn {
   from {
-    opacity: 0; /* Start invisible */
-    transform: scale(0.8); /* Scale down */
+    opacity: 0;
+    width: 250px;
   }
   to {
-    opacity: 1; /* End visible */
-    transform: scale(1); /* Scale to original size */
+    opacity: 1;
+    width: 300px;
   }
 }
-
-@keyframes fadeInBody {
+@keyframes fadeIn2 {
   from {
     opacity: 0;
   }
@@ -62,13 +34,33 @@ body {
     opacity: 1;
   }
 }
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
 
-/* Section Styling with Full-Height Snap Alignment */
-.section {
-  min-height: 100vh; /* Ensures each section takes the full viewport height */
+.animate-pulse {
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.delay-700 {
+  animation-delay: 700ms;
+}
+
+.delay-1000 {
+  animation-delay: 1000ms;
+}
+
+.loading-screen {
   display: flex;
   align-items: center;
   justify-content: center;
-  scroll-snap-align: start; /* Snaps each section to the start of the viewport */
-  padding: 2rem; /* Adds padding for better content spacing */
+  height: 100vh;
+  background-color: #000;
 }
+
+
