@@ -7,18 +7,49 @@ html {
   scroll-snap-type: y mandatory; /* Enables vertical scroll snapping */
 }
 
-body {
-  @apply bg-black text-white min-h-screen;
-  animation: fadeIn2 0.7s ease-in forwards;
-  animation-delay: 2.5s; /* Body content appears after 2.5 seconds */
-  overflow-y: scroll;
-}
-
-.logo {
-  width: 300px; /* Adjust size as needed */
-  animation: fadeIn 2s ease-in forwards; /* Fade-in for logo */
-}
-
+  
+  body {
+    @apply bg-black text-white min-h-screen;
+    animation: fadeIn2 0.7s ease-in forwards;
+    animation-delay: 2.5s; /* Body content appears after 2.5 seconds */
+    overflow-y: scroll;
+  }
+  
+  .logo {
+    width: 300px; /* Adjust size as needed */
+    animation: fadeIn 2s ease-in forwards; /* Fade-in for logo */
+  }
+  
+  
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+  
+  .animate-pulse {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .delay-700 {
+    animation-delay: 700ms;
+  }
+  
+  .delay-1000 {
+    animation-delay: 1000ms;
+  }
+  
+  .loading-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #000;
+  }
+  
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -37,34 +68,8 @@ body {
     opacity: 1;
   }
 }
-@keyframes pulse {
-  0%, 100% {
-    opacity: 0.5;
-  }
-  50% {
-    opacity: 0.8;
-  }
-}
 
-.animate-pulse {
-  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
 
-.delay-700 {
-  animation-delay: 700ms;
-}
-
-.delay-1000 {
-  animation-delay: 1000ms;
-}
-
-.loading-screen {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-color: #000;
-}
 
 
 

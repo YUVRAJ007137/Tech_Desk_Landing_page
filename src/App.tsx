@@ -4,59 +4,13 @@ import Navbar from './components/Navbar';
 import ServiceCard from './components/ServiceCard';
 import Background from './components/Background';
 import ContactForm from './components/ContactForm';
-import './index.css';
+import './index.css'; 
 
 function App() {
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const sections = document.querySelectorAll<HTMLElement>('section');
-    let isThrottled = false; // Flag for throttling scroll events
-
-    const handleScroll = (event: WheelEvent) => {
-      event.preventDefault(); // Prevent default scroll behavior
-
-      if (isThrottled) return; // Ignore if currently throttled
-      isThrottled = true; // Set throttle flag
-
-      const delta = event.deltaY;
-      const currentSectionIndex = Array.from(sections).findIndex(section => {
-        const rect = section.getBoundingClientRect();
-        return rect.top >= 0 && rect.top < window.innerHeight;
-      });
-
-      let nextSectionIndex = currentSectionIndex;
-
-      if (delta > 0) {
-        // Scrolling down
-        nextSectionIndex = currentSectionIndex < sections.length - 1 ? currentSectionIndex + 1 : currentSectionIndex;
-      } else {
-        // Scrolling up
-        nextSectionIndex = currentSectionIndex > 0 ? currentSectionIndex - 1 : currentSectionIndex;
-      }
-
-      // Scroll to the next section
-      if (nextSectionIndex >= 0 && nextSectionIndex < sections.length) {
-        sections[nextSectionIndex].scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-        });
-      }
-
-      setTimeout(() => {
-        isThrottled = false; // Reset throttle after timeout
-      }, 800); // Adjust time as necessary
-    };
-
-    window.addEventListener('wheel', handleScroll, { passive: false });
-
-    return () => {
-      window.removeEventListener('wheel', handleScroll);
-    };
-  }, []);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 2500);
+    const timer = setTimeout(() => setIsLoading(false), 2500); // Adjust the time as needed
 
     return () => clearTimeout(timer); 
   }, []);
@@ -101,6 +55,7 @@ function App() {
       </div>
     );
   }
+
   return (
     <div className="min-h-screen">
       <Background />
