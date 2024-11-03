@@ -46,7 +46,7 @@ function App() {
   if (isLoading) {
     return (
       <div className={`loading-screen ${!isLoading ? 'hidden' : ''}`}>
-        <img src="/logo.jpg" alt="Logo" className="logo" /> {/* Update to correct path */}
+        <img src="/projects/logo.jpg" alt="Logo" className="logo" /> {/* Update to correct path */}
       </div>
     );
   }
