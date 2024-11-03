@@ -4,14 +4,15 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory; /* Enables scroll snap effect */
 }
 
 body {
   @apply bg-black text-white;
-  opacity: 0; /* Initially hidden */
+  opacity: 0;
   animation: fadeInBody 0.7s ease-in forwards;
-  animation-delay: 2s; /* Body content appears after 2 seconds */
+  animation-delay: 2s;
+  overflow-y: scroll; /* Ensures scroll works correctly */
+  scroll-snap-type: y mandatory; /* Enables scroll snapping in the vertical direction */
 }
 
 /* Loading Screen */
@@ -22,7 +23,7 @@ body {
   height: 100vh;
   background-color: #000;
   opacity: 1;
-  transition: opacity 0.5s ease-in-out, visibility 0s 0.5s; /* Delay visibility */
+  transition: opacity 0.5s ease-in-out, visibility 0s 0.5s;
 }
 
 .loading-screen.hidden {
@@ -33,15 +34,15 @@ body {
 
 /* Logo Animation */
 .logo {
-  width: 300px; /* Adjust size as needed */
-  animation: fadeInLogo 2s ease-in forwards; /* Fade-in for logo */
+  width: 300px;
+  animation: fadeInLogo 2s ease-in forwards;
 }
 
 @keyframes fadeInLogo {
   from {
     opacity: 0;
     width: 250px;
-    transform: scale(0.9); /* Adds slight scale effect */
+    transform: scale(0.9);
   }
   to {
     opacity: 1;
@@ -50,7 +51,6 @@ body {
   }
 }
 
-/* Body Fade-in Animation */
 @keyframes fadeInBody {
   from {
     opacity: 0;
@@ -63,7 +63,7 @@ body {
 /* Pulse Effect */
 @keyframes pulse {
   0%, 100% {
-    opacity: 0.6; /* Slightly more subtle */
+    opacity: 0.6;
   }
   50% {
     opacity: 0.8;
@@ -74,7 +74,11 @@ body {
   animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-/* Scroll Snap Section */
+/* Section Styling with Snap Alignment */
 .section {
-  scroll-snap-align: start;
+  min-height: 100vh;
+  scroll-snap-align: start; /* Ensures each section snaps to the top of the viewport */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
