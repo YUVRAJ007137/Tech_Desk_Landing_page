@@ -4,13 +4,16 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y mandatory; /* Enables vertical scroll snapping */
 }
 
 body {
-  @apply bg-black text-white;
-  animation: fadeIn2 0.7s ease-in forwards; /* Fade-in for body */
-  animation-delay: 2.5s; /* Start the body animation after 3 seconds */
+  @apply bg-black text-white min-h-screen;
+  animation: fadeIn2 0.7s ease-in forwards;
+  animation-delay: 2.5s; /* Body content appears after 2.5 seconds */
+  overflow-y: scroll;
 }
+
 .logo {
   width: 300px; /* Adjust size as needed */
   animation: fadeIn 2s ease-in forwards; /* Fade-in for logo */
@@ -63,4 +66,16 @@ body {
   background-color: #000;
 }
 
+
+
+
+/* Section Styling with Full-Height Snap Alignment */
+.section {
+  min-height: 100vh; /* Ensures each section takes the full viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start; /* Snaps each section to the start of the viewport */
+  padding: 2rem; /* Adds padding for better content spacing */
+}
 
