@@ -4,29 +4,54 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y mandatory; /* Enables scroll snap effect */
 }
 
 body {
   @apply bg-black text-white;
-  animation: fadeIn2 0.7s ease-in forwards; /* Fade-in for body */
-  animation-delay: 2.5s; /* Start the body animation after 3 seconds */
-}
-.logo {
-  width: 300px; /* Adjust size as needed */
-  animation: fadeIn 2s ease-in forwards; /* Fade-in for logo */
+  opacity: 0; /* Initially hidden */
+  animation: fadeInBody 0.7s ease-in forwards;
+  animation-delay: 2s; /* Body content appears after 2 seconds */
 }
 
-@keyframes fadeIn {
+/* Loading Screen */
+.loading-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #000;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out, visibility 0s 0.5s; /* Delay visibility */
+}
+
+.loading-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Logo Animation */
+.logo {
+  width: 300px; /* Adjust size as needed */
+  animation: fadeInLogo 2s ease-in forwards; /* Fade-in for logo */
+}
+
+@keyframes fadeInLogo {
   from {
     opacity: 0;
     width: 250px;
+    transform: scale(0.9); /* Adds slight scale effect */
   }
   to {
     opacity: 1;
     width: 300px;
+    transform: scale(1);
   }
 }
-@keyframes fadeIn2 {
+
+/* Body Fade-in Animation */
+@keyframes fadeInBody {
   from {
     opacity: 0;
   }
@@ -34,9 +59,11 @@ body {
     opacity: 1;
   }
 }
+
+/* Pulse Effect */
 @keyframes pulse {
   0%, 100% {
-    opacity: 0.5;
+    opacity: 0.6; /* Slightly more subtle */
   }
   50% {
     opacity: 0.8;
@@ -47,20 +74,7 @@ body {
   animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-.delay-700 {
-  animation-delay: 700ms;
+/* Scroll Snap Section */
+.section {
+  scroll-snap-align: start;
 }
-
-.delay-1000 {
-  animation-delay: 1000ms;
-}
-
-.loading-screen {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-color: #000;
-}
-
-

@@ -4,53 +4,28 @@ import Navbar from './components/Navbar';
 import ServiceCard from './components/ServiceCard';
 import Background from './components/Background';
 import ContactForm from './components/ContactForm';
-import './index.css'; 
+import './index.css';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 2500); // Adjust the time as needed
-
     return () => clearTimeout(timer); 
   }, []);
 
   const services = [
-    {
-      icon: <Monitor size={32} />,
-      title: "Web Design",
-      description: "Custom-crafted websites that capture your brand's essence and drive results."
-    },
-    {
-      icon: <Smartphone size={32} />,
-      title: "App Development",
-      description: "Native Android applications built with the latest technologies and best practices."
-    },
-    {
-      icon: <Film size={32} />,
-      title: "Filmmaking",
-      description: "Professional film production services that tell your story beautifully."
-    },
-    {
-      icon: <Video size={32} />,
-      title: "Video Editing",
-      description: "Expert video editing that transforms raw footage into compelling content."
-    },
-    {
-      icon: <Camera size={32} />,
-      title: "Cinematography",
-      description: "Cinematic visuals that capture moments with artistic precision."
-    },
-    {
-      icon: <Palette size={32} />,
-      title: "Graphics Design",
-      description: "Creative designs that make your brand stand out in the digital landscape."
-    }
+    { icon: <Monitor size={32} />, title: "Web Design", description: "Custom-crafted websites that capture your brand's essence and drive results." },
+    { icon: <Smartphone size={32} />, title: "App Development", description: "Native Android applications built with the latest technologies and best practices." },
+    { icon: <Film size={32} />, title: "Filmmaking", description: "Professional film production services that tell your story beautifully." },
+    { icon: <Video size={32} />, title: "Video Editing", description: "Expert video editing that transforms raw footage into compelling content." },
+    { icon: <Camera size={32} />, title: "Cinematography", description: "Cinematic visuals that capture moments with artistic precision." },
+    { icon: <Palette size={32} />, title: "Graphics Design", description: "Creative designs that make your brand stand out in the digital landscape." }
   ];
 
   if (isLoading) {
     return (
-      <div className="loading-screen">
+      <div className={`loading-screen ${!isLoading ? 'hidden' : ''}`}>
         <img src="/projects/logo.jpg" alt="Logo" className="logo" />
       </div>
     );
@@ -62,8 +37,8 @@ function App() {
       <Navbar />
       
       {/* Hero Section */}
-      <section id="home" className="pt-20 pb-32 px-4">
-        <div className="max-w-7xl mx-auto mt-16 text-center">
+      <section id="home" className="section">
+        <div className="text-center">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
             Transform Your Digital Presence
           </h1>
@@ -77,8 +52,8 @@ function App() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
+      <section id="services" className="section">
+        <div>
           <h2 className="text-4xl font-bold text-center text-white mb-16">
             Our <span className="text-[#D4AF37]">Services</span>
           </h2>
@@ -91,13 +66,13 @@ function App() {
       </section>
 
       {/* Portfolio Section */}
-      <section id="portfolio" className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
+      <section id="portfolio" className="section">
+        <div>
           <h2 className="text-4xl font-bold text-center text-white mb-16">
             Featured <span className="text-[#D4AF37]">Projects</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
+            {[ 
               { id: 1, src: '/projects/Violence detection.png', link: 'https://violence-detection.vercel.app/', title: 'Violence Detection AI' },
               { id: 2, src: '/projects/rubby.png', link: 'https://rubbyroomchat.vercel.app/', title: 'Rubby Room Chat' },
               { id: 3, src: '/projects/MineMods.png', link: 'https://siddesh0002t.github.io/MineMods/', title: 'MineMods' }
@@ -128,7 +103,7 @@ function App() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-4">
+      <section id="contact" className="section">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-4xl font-bold text-center text-white mb-16">
             Get in <span className="text-[#D4AF37]">Touch</span>
@@ -139,7 +114,7 @@ function App() {
 
       {/* Footer */}
       <footer className="bg-black/80 backdrop-blur-md text-white py-8 border-t border-[#D4AF37]/20">
-        <div className="max-w-7xl mx-auto px-4 text-center">
+        <div className="text-center">
           <p className="text-gray-400">© 2024 Tech Desk. All rights reserved.</p>
         </div>
       </footer>
