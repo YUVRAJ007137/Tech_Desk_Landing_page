@@ -4,15 +4,15 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y mandatory; /* Enables vertical scroll snapping */
 }
 
 body {
-  @apply bg-black text-white;
+  @apply bg-black text-white min-h-screen;
   opacity: 0;
   animation: fadeInBody 0.7s ease-in forwards;
-  animation-delay: 2s;
+  animation-delay: 2.5s; /* Body content appears after 2.5 seconds */
   overflow-y: scroll;
-  scroll-snap-type: y mandatory; /* Enables vertical scroll snapping */
 }
 
 /* Loading Screen */
@@ -42,12 +42,10 @@ body {
   from {
     opacity: 0;
     width: 250px;
-    transform: scale(0.9);
   }
   to {
     opacity: 1;
     width: 300px;
-    transform: scale(1);
   }
 }
 
@@ -60,25 +58,12 @@ body {
   }
 }
 
-/* Pulse Effect */
-@keyframes pulse {
-  0%, 100% {
-    opacity: 0.6;
-  }
-  50% {
-    opacity: 0.8;
-  }
-}
-
-.animate-pulse {
-  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-/* Section Styling with Snap Alignment */
+/* Section Styling with Full-Height Snap Alignment */
 .section {
-  min-height: 100vh; /* Ensures each section takes full viewport height */
-  scroll-snap-align: start; /* Snaps each section to the start of the viewport */
+  min-height: 100vh; /* Ensures each section takes the full viewport height */
   display: flex;
   align-items: center;
   justify-content: center;
+  scroll-snap-align: start; /* Snaps each section to the start of the viewport */
+  padding: 2rem; /* Adds padding for better content spacing */
 }
