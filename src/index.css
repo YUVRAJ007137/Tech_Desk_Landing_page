@@ -16,36 +16,41 @@ body {
 }
 
 /* Loading Screen */
+/* Loading Screen */
 .loading-screen {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  background-color: #000;
-  opacity: 1;
-  transition: opacity 0.5s ease-in-out, visibility 0s 0.5s;
+  height: 100vh; /* Full viewport height */
+  background-color: #000; /* Black background */
+  position: fixed; /* Fixed position to cover the whole viewport */
+  top: 0; /* Align to top */
+  left: 0; /* Align to left */
+  width: 100%; /* Full width */
+  z-index: 1000; /* Ensure it's on top of other content */
+  transition: opacity 0.5s ease-in-out; /* Fade-out effect */
 }
 
-.loading-screen.hidden {
+.hidden {
   opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
+  visibility: hidden; /* Hide when loading is done */
+  pointer-events: none; /* Prevent interaction */
 }
 
-/* Logo Animation */
+/* Logo Styling */
 .logo {
   width: 300px; /* Adjust size as needed */
-  animation: fadeInLogo 2s ease-in forwards; /* Fade-in for logo */
+  animation: fadeInLogo 1s ease-in forwards; /* Fade-in for logo */
 }
 
 @keyframes fadeInLogo {
   from {
-    opacity: 0;
-    transform: scale(0.8); /* Slightly smaller at the start */
+    opacity: 0; /* Start invisible */
+    transform: scale(0.8); /* Scale down */
   }
   to {
-    opacity: 1;
-    transform: scale(1); /* Original size */
+    opacity: 1; /* End visible */
+    transform: scale(1); /* Scale to original size */
   }
 }
 
