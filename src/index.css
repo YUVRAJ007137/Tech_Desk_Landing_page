@@ -22,6 +22,8 @@ body {
   justify-content: center;
   height: 100vh;
   background-color: #000;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out, visibility 0s 0.5s;
 }
 
 .loading-screen.hidden {
@@ -32,18 +34,18 @@ body {
 
 /* Logo Animation */
 .logo {
-  width: 300px;
-  animation: fadeInLogo 2s ease-in forwards;
+  width: 300px; /* Adjust size as needed */
+  animation: fadeInLogo 2s ease-in forwards; /* Fade-in for logo */
 }
 
 @keyframes fadeInLogo {
   from {
     opacity: 0;
-    width: 250px;
+    transform: scale(0.8); /* Slightly smaller at the start */
   }
   to {
     opacity: 1;
-    width: 300px;
+    transform: scale(1); /* Original size */
   }
 }
 
